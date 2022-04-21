@@ -1,0 +1,20 @@
+version: "3"
+services:
+  adguard:
+    image: adguard/adguardhome
+    container_name: adguard
+    ports:
+      - 7060:53
+      - 7061-7062:67-68/udp
+      - 7063:80
+      - 7064:443
+      - 7065:3000
+      - 7066:853
+      - 7067:784
+    volumes:
+      - adguardhome-data:/opt/adguardhome/work
+      - adguardhome-config:/opt/adguardhome/conf
+
+volumes:
+  adguardhome-data:
+  adguardhome-config:
